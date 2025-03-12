@@ -33,13 +33,9 @@
                     <div class="flex space-x-2 mt-4 p-2">
                         @if ($role->permissions)
                             @foreach ($role->permissions as $role_permission)
-                                <form class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md" method="POST"
-                                    action="{{ route('admin.roles.permissions.revoke', [$role->id, $role_permission->id]) }}"
-                                    onsubmit="return confirm('Are you sure?');">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit">{{ $role_permission->name }}</button>
-                                </form>
+                                
+                                    <div class="px-4 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md">{{$role_permission->name}}</div>
+                            
                             @endforeach
                         @endif
                     </div>
